@@ -22,10 +22,14 @@ class UserAsset(Asset):
  
     @Asset.decorator_run
     def run(self):
-        
+
         """ data load """        
-        data = pd.read_csv(os.path.join(self.asset.get_input_path() , f"{self.args['file_name']}.csv")) # ALO API 사용
-        # data = pd.read_csv(os.path.join(self.args['data_dir'], f"{self.args['file_name']}.csv")) # custom directory 사용
+        ## ALO API 사용할 경우,
+        df_path_list = glob('{}/*/*.csv'.format(self.asset.get_input_path()))
+        data = pd.read_csv(df_path_list[-1])
+
+        ## 직접 데이터를 업로드하고 로드하는 경우,
+        # data = pd.read_csv(os.path.join(self.args['data_dir'], f"{self.args['file_name']}.csv"))
         
         
         """ model load """
