@@ -16,7 +16,6 @@ user_parameters:
       - step: train 
         args: 
           - random_state: 0
-            data_dir: './dataset/'
             file_name: 'train'
             target: 'quality'
             train_ratio: 0.6
@@ -25,8 +24,7 @@ user_parameters:
     - inference_pipeline:
       - step: inference
         args: 
-          - data_dir: './dataset/'
-            file_name: 'inference'
+          - file_name: 'inference'
             model_file: 'best_model.joblib'
 
 
