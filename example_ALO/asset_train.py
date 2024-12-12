@@ -32,9 +32,6 @@ class UserAsset(Asset):
         df_path_list = glob('{}/*/*.csv'.format(self.asset.get_input_path()))
         data = pd.read_csv(df_path_list[-1])
 
-        ## 직접 데이터를 업로드하고 로드하는 경우,
-        # data = pd.read_csv(os.path.join(self.args['data_dir'], f"{self.args['file_name']}.csv"))
-        
         
         """ train/validset define """
         # 독립변수/종속변수 정의
